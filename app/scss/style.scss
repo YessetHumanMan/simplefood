@@ -1,6 +1,78 @@
 @import 'vars';
 @import 'fonts';
 @import 'global';
+@import 'reset';
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__list-item:not(:last-child) {
+    margin-right: 45px;
+  }
+
+  &__list-link {
+    color: #31352B;
+    font-size: 18px;
+    text-decoration: underline transparent;
+    transition: color 0.3s;
+    &:hover {
+      color: $accent;
+    }
+    &:focus {
+      border-radius: 5px;
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+    }
+    &:active {
+      color: #31352B;
+      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
+    }
+  }
+  }
+
+  .user-nav {
+    margin-left: 60px;
+    &__btn {
+      margin-top: 7px;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      cursor: pointer;
+      position: relative;
+    }
+
+    &__btn:not(:last-child) {
+      margin-right: 35px;
+    }
+
+    &__num {
+      font-size: 10px;
+      color: #fff;
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      top: -5px;
+      right: -7px;
+      background-color: $accent;
+
+    }
+
+
+  }
+
 
 
 
