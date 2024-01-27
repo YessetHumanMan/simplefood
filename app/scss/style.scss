@@ -3,6 +3,38 @@
 @import 'global';
 @import 'reset';
 
+.btn-defauld {
+  padding: 10px 32px;
+  color: #fff;
+  background-color: $accent;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  outline: transparent;
+}
+
+.btn-defauld:focus {
+  color: $accent;
+  background-color: rgba(255, 122, 80, 0.10);
+  box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+}
+
+.btn-defauld:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: $accent;
+  box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+}
+
+.btn-defauld:active {
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0);
+  background-color: rgba(255, 122, 80, 0.10);
+}
+
+
+.header {
+  height: 100vh;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -41,7 +73,7 @@
   }
 
   &__list-item:not(:last-child) {
-    margin-right: 45px;
+    margin-right: 43px;
   }
 
   &__list-link {
@@ -105,7 +137,7 @@
   }
 
   &__btn:not(:last-child) {
-    margin-right: 35px;
+    margin-right: 8px;
   }
 
   &__btn:hover svg ellipse,
@@ -124,18 +156,78 @@
     background-color: $accent;
   }
 
-    &__num {
-      font-size: 10px;
-      color: #fff;
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      top: 8px;
-      right: 4px;
-      background-color: $accent;
-    }
+  &__num {
+    font-size: 10px;
+    color: #fff;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    top: 8px;
+    right: 4px;
+    background-color: $accent;
+  }
 }
+
+.header-content__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content__info {
+  max-width: 450px
+}
+
+.header-content__title {
+  color: $default;
+  font-size: 66px;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.header-content__subtitle {
+  display: block;
+  color: $accent;
+  font-size: 66px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.header-content-btn {
+  margin-right: 30px;
+}
+
+.header-content__title-deckr {
+  margin-bottom: 20px;
+}
+
+.header-content__title-link {
+  color: $default;
+  text-decoration: underline;
+  outline: transparent;
+  transition: color 0.3s;
+}
+
+.header-content__title-link:focus {
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+  text-decoration: none;
+}
+
+.header-content__title-link:hover {
+  color: $accent;
+  text-decoration: none;
+}
+
+.header-content__title-link:active {
+  text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0);
+  color: $default;
+}
+
 
 
 
