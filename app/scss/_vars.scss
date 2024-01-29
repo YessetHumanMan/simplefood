@@ -1,5 +1,9 @@
+$body:#F9FAFF;
 $accent: #FF6838;
 $default: #363853;
+$forms:#C2C2C2;
+$dark:#31352B;
+$silver:#ECECEC;
 
 %rubik-300 {
   font-family: 'Rubik-Light', sans-serif;
@@ -14,4 +18,10 @@ $default: #363853;
 %rubik-500 {
   font-family: 'Rubik-Medium', sans-serif;
   font-weight: 500;
+}
+
+
+%rubik-600 {
+  font-family: 'Rubik-SemiBold', sans-serif;
+  font-weight: 600;
 }

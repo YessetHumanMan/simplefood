@@ -27,3 +27,13 @@
     url('../fonts/Rubik-Medium.woff') format('woff');
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Rubik-SemiBold', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  src: local('Rubik-SemiBold'),
+    url('../fonts/Rubik-Medium.woff2') format('woff2'),
+    url('../fonts/Rubik-Medium.woff') format('woff');
+  font-display: swap;
+}
