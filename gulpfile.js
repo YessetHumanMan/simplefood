@@ -9,7 +9,11 @@ const clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
 
 function scripts() {
-  return src('app/js/main.js')
+  return src([
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/mixitup/dist/mixitup.js',
+    'app/js/main.js'
+  ])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
     .pipe(dest('app/js'))
@@ -74,7 +78,6 @@ function images() {
     ]))
     .pipe(dest('dist/images'))
 }
-
 
 exports.styles = styles;
 exports.scripts = scripts;

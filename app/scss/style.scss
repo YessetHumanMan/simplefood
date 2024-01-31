@@ -17,7 +17,7 @@
 }
 
 .btn-defauld {
-  padding: 10px 32px;
+  padding: 10px 30px;
   color: #fff;
   background-color: $accent;
   border: none;
@@ -42,7 +42,6 @@
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
   background-color: rgba(255, 122, 80, 0.10);
 }
-
 
 .header {
   height: 100vh;
@@ -83,7 +82,7 @@
   &__list {
     display: flex;
     justify-content: space-between;
-    margin-right: 60px;
+    margin-right: 54px;
   }
 
   &__list-item:not(:last-child) {
@@ -91,7 +90,7 @@
   }
 
   &__list-link {
-    color: #31352B;
+    color: $default;
     font-size: 18px;
     text-decoration: underline transparent;
     outline: transparent;
@@ -199,17 +198,18 @@
     font-size: 66px;
     text-transform: uppercase;
     line-height: 1.3;
+    @extend %rubik-500;
   }
 
   &__subtitle {
     display: block;
     color: $accent;
     font-size: 66px;
-    @extend %rubik-600;
     text-transform: uppercase;
     line-height: 1.3;
     letter-spacing: 2.5;
     margin-bottom: 20px;
+    @extend %rubik-500;
   }
 
   &__title-deckr {
@@ -258,12 +258,21 @@
 
 .simplefood-menu {
   padding: 120px;
+  text-align: center;
 
-  &__filtr-btn {
+  &__filter {
+    display: flex;
+  }
+
+  &__filter-item {
+    margin-right: 20px;
+  }
+
+  &__filter-btn {
     margin-bottom: 45px;
   }
 
-  &__filtr-btn {
+  &__filter-btn {
     padding: 2px 29px 18px 29px;
     border-radius: 5px;
     background-color: #fff;
@@ -293,55 +302,102 @@
       background-color: #FFF;
       box-shadow: 0px -5px 12px 0px rgba(255, 104, 56, 0.20) inset;
     }
+
+    &:active svg path {
+      fill: black;
+    }
   }
 
-  &__filtr-btn:not(:last-child) {
+  &__filter-btn:not(:last-child) {
     margin-right: 20px;
   }
 
-  &__filtr-btn svg {
+  &__filter-btn svg {
     display: inline-flex;
     transform: translateY(15px);
     margin-right: 10px;
   }
 
-  &__filtr-content {
+  .mixitup-control-active {
+    background-color: $accent;
+    color: #FFF;
+  }
+
+  .mixitup-control-active svg path {
+    fill: #FFF;
+  }
+
+  &__filter-content {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 30px;
+    margin-bottom: 60px;
   }
-}
+
+  &__more {
+    color: $default;
+    text-decoration-line: underline;
+    outline: transparent;
+    transition: color 0.3s, text-shadow 0.3s;
+    &:focus {
+      border-radius: 5px;
+      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+    }
+
+    &:hover {
+      color: $accent;
+      text-decoration: none;
+    }
+
+    &:active {
+      color: $dark;
+      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+    }
+    }
+  }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   background-color: #fff;
   padding: 15px;
   max-width: 210px;
-  height: 290px;
-  text-align: center;
+  min-height: 300px;
   border-radius: 5px;
+  transition: box-shadow 0.3s;
 
-  &__img {
-    display: block;
-    margin: 0 auto;
+  &:hover {
+    box-shadow: 0px 0px 0px 1px $accent;
   }
 
-  &__descr {
+  &__img {
+    margin: 0 auto;
+    max-width: 140px;
+    height: fit-content;
+    padding-bottom: 10px;
+  }
+
+  &__title {
     color: $dark;
     font-size: 15px;
-    display: block;
+    line-height: normal;
     margin-bottom: 10px;
+    text-align: center;
   }
 
   &__price {
-    display: block;
     color: $default;
     font-size: 15px;
-    @extend %rubik-600;
+    @extend %rubik-500;
     line-height: 1.4;
     margin-bottom: 10px;
   }
 
   &__btn {
+    display: block;
     color: #FFF;
     background-color: $accent;
     font-size: 14px;
@@ -352,12 +408,6 @@
     cursor: pointer;
   }
 }
-
-
-
-
-
-
 
 .footer-top {
   display: flex;
@@ -397,7 +447,6 @@
   &__input:hover::placeholder {
     color: $default;
   }
-
 
   &__btn {
     padding: 13px 41px 13px 41px;
@@ -527,18 +576,5 @@
   font-size: 14px;
   line-height: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @import 'media';
