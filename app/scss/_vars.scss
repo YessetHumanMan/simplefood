@@ -4,23 +4,27 @@ $default: #363853;
 $forms:#C2C2C2;
 $dark:#31352B;
 $silver:#ECECEC;
+$white: #ffffff;
 
 %rubik-300 {
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
 }
 
 %rubik-400 {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubiik', sans-serif;
   font-weight: 400;
 }
 
 %rubik-500 {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 500;
 }
 
-%rubik-600 {
-  font-family: 'Rubik-SemiBold', sans-serif;
-  font-weight: 600;
+
+%flex-jc-ai {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+

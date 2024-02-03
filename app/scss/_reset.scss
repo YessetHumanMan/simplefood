@@ -1,4 +1,4 @@
-html{
+html {
   box-sizing: border-box;
 }
 
@@ -8,8 +8,8 @@ html{
   box-sizing: inherit;
 }
 
-ul[class],
-ol[class]{
+ul,
+ol {
   padding: 0;
 }
 
@@ -50,4 +50,33 @@ select {
 
 a {
   text-decoration: none;
+  color: inherit;
+}
+
+a,
+button,
+input,
+textarea {
+  outline: transparent;
+}
+
+button {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+address {
+  font-style: normal;
+}
+
+a,
+input,
+textarea,
+button,
+select {
+  outline: none;
 }

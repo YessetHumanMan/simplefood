@@ -7,6 +7,9 @@ const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
+const svgSprite = require('gulp-svg-sprite');
+const cheerio = require('gulp-cheerio');
+const replace = require('gulp-replace');
 
 function scripts() {
   return src([
@@ -33,6 +36,7 @@ function watching() {
   watch(['app/scss/style.scss'], styles)
   watch(['app/js/main.js'], scripts)
   watch(['app/*.html']).on('change', browserSync.reload);
+  watch(['app/images/icons/*.svg'], svgSprites);
 }
 
 function browsersync() {
@@ -79,11 +83,36 @@ function images() {
     .pipe(dest('dist/images'))
 }
 
+function svgSprites() {
+  return src('app/images/icons/*.svg') 
+  .pipe(cheerio({
+        run: ($) => {
+            $("[fill]").removeAttr("fill"); 
+            $("[stroke]").removeAttr("stroke"); 
+            $("[style]").removeAttr("style"); 
+        },
+        parserOptions: { xmlMode: true },
+      })
+  )
+	.pipe(replace('&gt;','>'))
+	.pipe(
+	      svgSprite({
+	        mode: {
+	          stack: {
+	            sprite: '../sprite.svg', 
+	          },
+	        },
+	      })
+	    )
+	.pipe(dest('app/images'));
+}
+
 exports.styles = styles;
 exports.scripts = scripts;
 exports.watching = watching;
 exports.browsersync = browsersync;
 exports.images = images;
+exports.svgSprites = svgSprites;
 
 exports.build = series(cleanDist, building);
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.default = parallel(svgSprites,styles, scripts, browsersync, watching);

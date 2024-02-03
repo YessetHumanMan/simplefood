@@ -1,5 +1,5 @@
 
-var mixer = mixitup('.simplefood-menu__filter-content');
+const mixer = mixitup('.popular-categories__filter-content');
 
 
 
