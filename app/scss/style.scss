@@ -486,11 +486,11 @@
 .reviews {
 
   &__title {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
 
   &__slider-item {
-    padding: 20px 0;
+    padding: 40px 0;
   }
 
   &__slider-inner {
@@ -518,33 +518,56 @@
     }
   }
 
-  .slick-prev,
-  .slick-next {
-    position: absolute;
-    bottom: 0;
-    padding: 2px;
-    border: 3px solid $forms;
-    border-radius: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -12px;
-  }
 
   .slick-prev {
-    background-image: url('../images/sprite.svg#slider-prev-icon');
+    position: absolute;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    width: 34px;
-    height: 34px;
-    filter: invert(77%) sepia(1%) saturate(0%) hue-rotate(167deg) brightness(100%) contrast(97%);
-    transform: translateX(-120px);
+    border: 3px solid #c3c3c3;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateX(-115px);
+    
   }
 
   .slick-next {
-    transform: translateX(60px);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 3px solid #c3c3c3;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateX(70px);
+    
   }
 
+  .slick-prev svg {
+    background-image: url('../images/sprite.svg#slider-prev-icon');
+    width: 19px;
+    height: 19px;
+    filter: invert(77%) sepia(1%) saturate(0%) hue-rotate(167deg) brightness(100%) contrast(97%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: translateY(2px);
+    margin-right: 2px;
+  }
+
+  .slick-next svg {
+    background-image: url('../images/sprite.svg#slider-next-icon');
+    width: 19px;
+    height: 19px;
+    filter: invert(77%) sepia(1%) saturate(0%) hue-rotate(167deg) brightness(100%) contrast(97%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: translateY(2px);
+  }
+    
 
 
   &__img {
