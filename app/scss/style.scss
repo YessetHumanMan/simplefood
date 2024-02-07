@@ -1,21 +1,37 @@
 @import 'reset';
 @import 'fonts';
 @import 'vars';
+@import 'libs';
 @import 'global';
 
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 777;
+  padding: 60px 0;
+  transition: padding 0.3s, background-color 0.3s;
+}
+
+.fixed {
+  background-color: $white;
+  padding: 10px 0;
+  box-shadow: 0px 0px 0px 2px rgba($accent, 0.20);
+}
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 0;
 }
 
 .logo {
 
   &:focus {
     border-radius: 5px;
-    box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+    box-shadow: 0px 0px 0px 2px rgba($accent, 0.20);
   }
 
   &:hover {
@@ -40,24 +56,11 @@
   }
 
   &__link {
-    color: $default;
     font-size: 18px;
-    outline: transparent;
-    transition: color 0.3s, box-shadow 0.3s, text-shadow 0.3s;
-
-    &:hover {
-      color: $accent;
-    }
-
-    &:focus {
-      border-radius: 5px;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
-    }
+    text-decoration: none;
 
     &:active {
-      color: #31352B;
-      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+      color: $dark;
     }
   }
 
@@ -73,72 +76,61 @@
   &__btn {
     width: 44px;
     height: 44px;
+    padding-top: 5px;
     border-radius: 5px;
-    border: none;
     background-color: transparent;
-    padding: 0;
-    cursor: pointer;
     position: relative;
-    outline: transparent;
     transition: stroke 0.3s, color 0.3s, background-color 0.3s;
 
-    &:hover {
-      width: 44px;
-      height: 44px;
+    &:hover svg ellipse,
+    &:hover svg path,
+    &:hover .user-nav__num {
       stroke: $white;
-      background-color: #FF7A50;
-      border-radius: 5px;
+      color: $accent;
+      background-color: $white;
+    }
+
+    &:active svg ellipse,
+    &:active svg path,
+    &:active .user-nav__num {
+      stroke: $default;
+      color: $white;
+      background-color: $accent;
+    }
+
+    &:hover {
+      stroke: $white;
+      background-color: $btn-bg;
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($accent, 0.70);
       background: rgba(255, 122, 80, 0.10);
     }
 
     &:active {
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0);
+      box-shadow: 0 0 0 2px rgba($accent, 0);
     }
   }
 
-
   &__item:not(:last-child) {
     margin-right: 10px;
-  }
-
-  &__btn:hover svg ellipse,
-  &__btn:hover svg path,
-  &__btn:hover .user-nav__num {
-    stroke: $white;
-    color: $accent;
-    background-color: $white;
-  }
-
-  &__btn:active svg ellipse,
-  &__btn:active svg path,
-  &__btn:active .user-nav__num {
-    stroke: $default;
-    color: $white;
-    background-color: $accent;
   }
 
   &__num {
     font-size: 10px;
     color: $white;
     position: absolute;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    top: 8px;
-    right: 4px;
+    padding: 1px 6px;
+    border-radius: 30px;
+    top: 4px;
+    left: 24px;
     background-color: $accent;
   }
 }
 
-.hero-content--top {
-  padding-top: 0;
-}
-
 .hero-content {
+  padding-top: 160px;
 
   &__inner {
     @extend %flex-jc-ai;
@@ -154,59 +146,22 @@
     text-transform: uppercase;
     line-height: 1.3;
     @extend %rubik-500;
+    margin-bottom: 20px;
   }
 
   &__subtitle {
     display: block;
     color: $accent;
-    font-size: 66px;
-    text-transform: uppercase;
-    line-height: 1.3;
     letter-spacing: 2.5;
-    margin-bottom: 20px;
-    @extend %rubik-500;
   }
 
   &__deckr {
     color: $dark;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   &__btn-link {
-    color: $white;
-    background-color: $accent;
-    padding: 14px 36px;
-    border-radius: 6px;
-    font-size: 18px;
     margin-right: 35px;
-  }
-
-  &__link {
-    color: $default;
-    text-decoration: underline;
-    outline: transparent;
-    transition: color 0.3s;
-
-    &:focus {
-      border-radius: 5px;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
-      text-decoration: none;
-    }
-
-    &:hover {
-      color: $accent;
-      text-decoration: none;
-    }
-
-    &:active {
-      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
-      color: $default;
-    }
-  }
-
-  &__btn {
-    margin-right: 30px;
   }
 
   &__img {
@@ -244,63 +199,72 @@
   }
 
   &__filter-btn {
-    margin-bottom: 45px;
-  }
-
-  &__filter-btn {
     padding: 2px 29px 18px 29px;
-    border-radius: 5px;
+    color: $default;
     background-color: $white;
-    border: none;
     box-shadow: 0 0 0 1px $silver;
     line-height: 1.3;
-    cursor: pointer;
-    outline: transparent;
     transition: color 0.3s, background-color 0.3s, fill 0.3s;
+    margin-bottom: 45px;
 
     &:focus {
+      color: $default;
+      background-color: $white;
       box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+    }
+
+    &:focus .btn__svg {
+      fill: $default;
     }
 
     &:hover {
       color: $accent;
-      background-color: rgba(255, 122, 80, 0.10);
+      background-color: rgba(255, 122, 82, 0.10);
       box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
     }
 
-    &:hover svg path {
+    &:hover .btn__svg {
       fill: $accent;
     }
 
     &:active {
       color: $default;
       background-color: $white;
-      box-shadow: 0px -5px 12px 0px rgba(255, 104, 56, 0.20) inset;
+      box-shadow: 0px -5px 12px 0px rgba($accent, 0.20) inset;
     }
 
-    &:active svg path {
+    &:active .btn__svg {
+      fill: $default;
+    }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    svg {
+      display: inline-flex;
+      transform: translateY(15px);
+      margin-right: 10px;
+    }
+
+    .btn__svg {
       fill: black;
+      transition: fill 0.3s;
     }
   }
 
-  &__filter-btn:not(:last-child) {
-    margin-right: 20px;
-  }
-
-  &__filter-btn svg {
-    display: inline-flex;
-    transform: translateY(15px);
-    margin-right: 10px;
-  }
 
   .mixitup-control-active {
     background-color: $accent;
     color: $white;
+    border-radius: 5px;
+
+    .btn__svg {
+      fill: $white;
+    }
   }
 
-  .mixitup-control-active svg path {
-    fill: $white;
-  }
+
 
   &__filter-content {
     display: grid;
@@ -309,29 +273,17 @@
     margin-bottom: 60px;
   }
 
-  &__more {
-    color: $default;
-    text-decoration-line: underline;
-    outline: transparent;
-    transition: color 0.3s, text-shadow 0.3s;
-
+  &__more-link {
     &:focus {
-      border-radius: 5px;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
-    }
-
-    &:hover {
-      color: $accent;
-      text-decoration: none;
+      text-decoration: underline;
     }
 
     &:active {
-      color: $dark;
-      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+      text-decoration: none;
     }
   }
 }
+
 
 .product-card {
   display: flex;
@@ -347,15 +299,14 @@
   transition: box-shadow 0.3s;
 
   &:hover {
-    box-shadow: 0px 0px 0px 1px $accent;
+    box-shadow: 0 0 0 1px $accent;
   }
 
   &__img {
     width: 100%;
-    max-width: 140px;
+    width: 140px;
     height: 140px;
     margin: 0 auto;
-    max-width: 140px;
     height: fit-content;
     padding-bottom: 10px;
   }
@@ -365,7 +316,6 @@
     font-size: 15px;
     line-height: normal;
     margin-bottom: 10px;
-    text-align: center;
   }
 
   &__price {
@@ -379,32 +329,290 @@
 
   &__btn {
     display: block;
-    color: $white;
-    background-color: $accent;
     font-size: 14px;
     line-height: 1.3;
-    border: none;
-    border-radius: 6px;
     padding: 7px 16px;
     cursor: pointer;
+  }
+}
+
+.service {
+  &__wrapp {
+    @extend %flex-jc-sa-ai;
+  }
+
+  &__img {
+    width: 100%;
+    width: 440px;
+    height: 585px;
+    @extend %bg-img;
+  }
+
+  &__content {
+    max-width: 470px;
+  }
+
+  &__title {
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  &__descr {
+    color: $dark;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    font-size: 24px;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__item svg {
+    margin-right: 30px;
+    transform: translateY(8px);
+  }
+
+  &__btn {
+    padding: 11px 36px;
+  }
+}
+
+.restaurants__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.restaurants__title {
+  margin-bottom: 45px;
+}
+
+.rest-card {
+  max-width: 370px;
+  height: 419px;
+  background-color: $white;
+  border-radius: 10px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.5);
+  }
+
+  &__img {
+    width: 370px;
+    height: 300px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__footer {
+    padding: 20px;
+  }
+
+  &__title {
+    color: $dark;
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  &__time {
+    @extend %flex-jc-ai;
+  }
+
+  &__watch-svg {
+    transform: translateY(3px);
+  }
+
+  &__btn {
+    padding: 4px 32px;
+    border-radius: 20px;
+    margin-left: auto;
+
+    &:focus svg {
+      fill: $accent;
+    }
+
+    &:hover svg {
+      fill: $accent;
+      transform: translateX(20px);
+    }
+
+    &:active svg {
+      transform: translateX(0);
+      padding-top: 7px;
+    }
+  }
+}
+
+
+
+.download-app {
+  &__wrapp {
+    @extend %flex-jc-ai;
+  }
+
+  &__content {
+    max-width: 470px;
+    height: 300px;
+  }
+
+  &__descr {
+    margin-bottom: 35px;
+    color: $dark;
+  }
+
+  &__title {
+    text-align: left;
+    margin-bottom: 45px;
+  }
+
+  &__link {
+    display: inline-flex;
+  }
+
+  &__link:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.reviews {
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__slider-item {
+    padding: 20px 0;
+  }
+
+  &__slider-inner {
+    @extend %flex-jc-c-ai;
+  }
+
+  .slick-dots {
+    @extend %flex-jc-c-ai;
+
+    li {
+      button {
+        font-size: 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: $forms;
+        margin-right: 15px;
+      }
+
+      &.slick-active {
+        button {
+          background-color: $accent;
+        }
+      }
+    }
+  }
+
+  .slick-prev,
+  .slick-next {
+    position: absolute;
+    bottom: 0;
+    padding: 2px;
+    border: 3px solid $forms;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -12px;
+  }
+
+  .slick-prev {
+    background-image: url('../images/sprite.svg#slider-prev-icon');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 34px;
+    height: 34px;
+    filter: invert(77%) sepia(1%) saturate(0%) hue-rotate(167deg) brightness(100%) contrast(97%);
+    transform: translateX(-120px);
+  }
+
+  .slick-next {
+    transform: translateX(60px);
+  }
+
+
+
+  &__img {
+    border-radius: 50%;
+    margin-right: 35px;
+  }
+
+  &__content {
+    max-width: 650px;
+
+  }
+
+  &__descr {
+    color: $dark;
+    @extend %rubik-i-400;
+    margin-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url('../images/quote.png');
+      width: 24px;
+      height: 20px;
+      @extend %bg-img;
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url('../images/quote.png');
+      width: 24px;
+      height: 20px;
+      @extend %bg-img;
+      bottom: 0;
+      right: 0;
+      transform: scale(-1, 1);
+    }
+  }
+
+
+  &__author {
+    display: block;
+    color: $accent;
+    @extend %rubik-500;
+    font-style: normal;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    padding-left: 40px;
+  }
+
+  &__author-info {
+    display: block;
+    color: $dark;
+    font-size: 14px;
+    line-height: 1.3;
+    padding-left: 40px;
   }
 }
 
 .footer-top {
   display: flex;
   padding-bottom: 60px;
-
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 30px;
-    row-gap: 10px;
-    width: fit-content;
-  }
-
-  &__item {
-    margin-right: 75px;
-  }
+  gap: 5%;
 
   &__logo {
     display: block;
@@ -412,8 +620,12 @@
     margin-bottom: 25px;
   }
 
-  &__list-item {
-    margin-bottom: 10px;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 70px;
+    row-gap: 20px;
+    grid-auto-rows: 23px;
   }
 }
 
@@ -428,6 +640,15 @@
     margin-bottom: 12px;
     outline: transparent;
 
+    &:focus {
+      box-shadow: 0 0 0 2px $accent;
+      border: 1px solid transparent;
+    }
+
+    &:hover::placeholder {
+      color: $default;
+    }
+
     &::placeholder {
       color: $forms;
       line-height: 1.3;
@@ -436,37 +657,30 @@
     }
   }
 
-  &__input:focus {
-    box-shadow: 0 0 0 2px $accent;
-    border: 1px solid transparent;
-  }
-
-  &__input:hover::placeholder {
-    color: $default;
-  }
-
   &__btn {
     width: 100%;
     padding: 13px 6px;
     font-size: 14px;
-  }
 
-  &__btn svg {
-    display: inline-flex;
-    margin-right: 15px;
-    transform: translateY(3px);
-  }
 
-  &__btn:focus svg path {
-    fill: $accent;
-  }
+    & svg {
+      display: inline-flex;
+      margin-right: 15px;
+      transform: translateY(3px);
+    }
 
-  &__btn:hover svg path {
-    fill: $accent;
+    &:focus svg path {
+      fill: $accent;
+    }
+
+    &:hover svg path {
+      fill: $accent;
+    }
   }
 
   &__list-item {
     margin-bottom: 10px;
+    max-width: 100%;
   }
 
   &__list-link {
@@ -478,7 +692,6 @@
 }
 
 .address {
-  margin-left: 75px;
 
   &__item {
     margin-bottom: 15px;
@@ -491,34 +704,33 @@
     cursor: pointer;
     position: relative;
     padding-left: 25px;
-  }
 
-  &__link::before {
-    content: "";
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    left: 0;
-    top: 0;
-  }
 
-  &__link--location::before {
-    background-image: url('../images/footer_img/icon-location.svg');
-    width: 15px;
-    height: 18px;
-  }
+    &::before {
+      content: "";
+      position: absolute;
+      @extend %bg-img;
+      left: 0;
+      top: 0;
+    }
 
-  &__link--call::before {
-    background-image: url('../images/footer_img/icon-call.svg');
-    width: 19px;
-    height: 19px;
-  }
+    &--location::before {
+      background-image: url('../images/footer_img/icon-location.svg');
+      width: 15px;
+      height: 18px;
+    }
 
-  &__link--email::before {
-    background-image: url('../images/footer_img/icon-message.svg');
-    width: 20px;
-    height: 18px;
+    &--call::before {
+      background-image: url('../images/footer_img/icon-call.svg');
+      width: 19px;
+      height: 19px;
+    }
+
+    &--email::before {
+      background-image: url('../images/footer_img/icon-message.svg');
+      width: 20px;
+      height: 18px;
+    }
   }
 }
 
@@ -535,32 +747,26 @@
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: #ECECEC;
+    background-color: rgb(236, 236, 236);
     border-radius: 50%;
-    outline: transparent;
     transition: background-color 0.3s, fill 0.3s;
-  
-  &:focus {
-    background-color: rgba(255, 122, 80, 0.10);
-    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
-  }
+    padding: 0;
 
-  &:hover {
-    background-color: $accent;
-  }
+    &:hover {
+      background-color: $btn-bg;
+    }
 
-  &:hover svg path {
-    fill: $white;
-  }
+    &:hover svg path {
+      fill: $white;
+    }
 
-  &:active {
-    background-color: rgba(255, 122, 80, 0.10);
-    box-shadow: none;
-  }
+    &:active {
+      background-color: rgba(255, 122, 80, 0.10);
+    }
 
-  &:active svg path {
-    fill: $accent;
-  }
+    &:active svg path {
+      fill: $accent;
+    }
   }
 }
 
@@ -568,10 +774,10 @@
   padding: 30px 0;
   border-top: 1px solid #eeeff3;
   text-align: center;
-}
 
-.footer-copy__text {
-  color: $dark;
-  font-size: 14px;
-  line-height: 1;
+  &__text {
+    color: $dark;
+    font-size: 14px;
+    line-height: 1;
+  }
 }

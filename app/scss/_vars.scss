@@ -1,8 +1,9 @@
 $body:#F9FAFF;
-$accent: #FF6838;
+$accent: #ff6838;
+$btn-bg:#ff7a50;
 $default: #363853;
-$forms:#C2C2C2;
-$dark:#31352B;
+$forms:#c2c2c2;
+$dark:#31352b;
 $silver:#ECECEC;
 $white: #ffffff;
 
@@ -12,8 +13,14 @@ $white: #ffffff;
 }
 
 %rubik-400 {
-  font-family: 'Rubiik', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 400;
+}
+
+%rubik-i-400 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: italic;
 }
 
 %rubik-500 {
@@ -27,4 +34,23 @@ $white: #ffffff;
   justify-content: space-between;
   align-items: center;
 }
+
+%flex-jc-sa-ai {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+%flex-jc-c-ai {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%bg-img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
 

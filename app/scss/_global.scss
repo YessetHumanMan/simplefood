@@ -27,31 +27,64 @@ body {
 }
 
 .btn-default {
-  padding: 10px 30px;
+  font-size: 18px;
+  padding: 14px 32px;
   color: $white;
   background-color: $accent;
-  border: none;
   border-radius: 6px;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  outline: transparent;
 
 &:focus {
   color: $accent;
-  background-color: rgba(255, 122, 80, 0.10);
-  box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+  background-color: rgba(255, 122, 80, 0.1);
+  box-shadow: 0 0 0 2px rgba($accent, 0.70);
 }
 
 &:hover {
-  background-color: rgba(255, 255, 255, 0.10);
+  background-color: rgba($white, 0.10);
   color: $accent;
-  box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+  box-shadow: 0 0 0 2px rgba($accent, 0.70);
 }
 
 &:active {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+  box-shadow: 0 0 0 2px rgba($white, 0);
   background-color: rgba(255, 122, 80, 0.10);
 }
 }
+
+.link-default {
+    color: $default;
+    text-decoration: underline;
+    outline: transparent;
+    transition: color 0.3s, text-shadow 0.3s;
+
+    &:focus {
+      border-radius: 5px;
+      box-shadow: 0 0 0 2px rgba($accent, 0.70);
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $accent;
+      text-decoration: none;
+    }
+
+    &:active {
+      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
+      box-shadow: 0 0 0 2px rgba($white, 0);
+      color: $default;
+    }
+  }
+
+  title {
+    text-align: center;
+    color: $default;
+    font-size: 36px;
+    @extend %rubik-500;
+    line-height: 1.3;
+    margin-bottom: 60px;
+  }
+
 
 .main {
   flex-grow: 1;
