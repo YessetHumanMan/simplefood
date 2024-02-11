@@ -1,13 +1,14 @@
 $(function() {
 
 $(window).on('scroll', function(){
-  $('.header').toggleClass('fixed', $(this).scrollTop() > 0);
+  $('.header').toggleClass('header--fixed', $(this).scrollTop() > 0);
 });
 
 $('.reviews__slider').slick({
   dots:true,
-  prevArrow: '<button type="button" style="width: 35px; height: 35px; border-radius: 50%;" class="slick-prev"><svg width="34" height="34" "images/sprite.svg#slider-prev-icon"></button>',
-  nextArrow: '<button type="button" style="width: 35px; height: 35px; border-radius: 50%;" class="slick-next"><svg width="34" height="34" "images/sprite.svg#slider-next-icon"></button>'
+  infinite:false,
+  prevArrow: '<button type="button" class="reviews__arrow reviews__arrow--prev"><svg class="reviews__arrow-svg reviews__arrow-svg--prev" "images/sprite.svg#slider-prev-icon"></button>',
+  nextArrow: '<button type="button" class="reviews__arrow reviews__arrow--next"><svg class="reviews__arrow-svg reviews__arrow-svg--next" "images/sprite.svg#slider-next-icon"></button>'
   
 
 });

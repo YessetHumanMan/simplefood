@@ -2,6 +2,7 @@
 @import 'fonts';
 @import 'vars';
 @import 'libs';
+@import 'mixin';
 @import 'global';
 
 .header {
@@ -13,13 +14,18 @@
   z-index: 777;
   padding: 60px 0;
   transition: padding 0.3s, background-color 0.3s;
+
+  &--fixed {
+    background-color: $white;
+    padding: 10px 0;
+    box-shadow: 0 0 0 2px rgba($accent, 0.20);
+  }
+
+  &__logo {
+    margin-right: auto;
+  }
 }
 
-.fixed {
-  background-color: $white;
-  padding: 10px 0;
-  box-shadow: 0px 0px 0px 2px rgba($accent, 0.20);
-}
 
 .nav {
   display: flex;
@@ -28,10 +34,13 @@
 }
 
 .logo {
+  &__img {
+    object-fit: contain;
+  }
 
   &:focus {
     border-radius: 5px;
-    box-shadow: 0px 0px 0px 2px rgba($accent, 0.20);
+    box-shadow: 0 0 0 2px rgba($accent, 0.70);
   }
 
   &:hover {
@@ -41,10 +50,6 @@
   &:active {
     opacity: 0.5;
   }
-}
-
-.header-logo {
-  margin-right: auto;
 }
 
 .menu {
@@ -81,25 +86,18 @@
     position: relative;
     transition: stroke 0.3s, color 0.3s, background-color 0.3s;
 
-    &:hover svg ellipse,
-    &:hover svg path,
-    &:hover .user-nav__num {
+    &:hover svg {
       stroke: $white;
-      color: $accent;
-      background-color: $white;
-    }
-
-    &:active svg ellipse,
-    &:active svg path,
-    &:active .user-nav__num {
-      stroke: $default;
-      color: $white;
-      background-color: $accent;
     }
 
     &:hover {
       stroke: $white;
       background-color: $btn-bg;
+    }
+
+    &:hover .user-nav__num {
+      background-color: $white;
+      color: $accent;
     }
 
     &:focus {
@@ -111,6 +109,15 @@
       box-shadow: 0 0 0 2px rgba($accent, 0);
     }
   }
+
+  &__btn svg {
+    width: 19px;
+    height: 19px;
+    fill: transparent;
+    stroke: $dark;
+  }
+
+
 
   &__item:not(:last-child) {
     margin-right: 10px;
@@ -157,6 +164,7 @@
   &__deckr {
     color: $dark;
     margin-bottom: 25px;
+    @include line-clamp(3);
   }
 
   &__btn-link {
@@ -164,15 +172,12 @@
   }
 
   &__img {
-    width: 100%;
     width: 560px;
     height: 660px;
   }
 
   &__img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    @extend %bg-img;
   }
 }
 
@@ -190,6 +195,9 @@
 
   &__filter {
     display: flex;
+    margin-bottom: 41px;
+    overflow-x: auto;
+    padding: 2px 0 3px 2px;
   }
 
   &__filter-item {
@@ -197,18 +205,20 @@
   }
 
   &__filter-btn {
-    padding: 2px 29px 18px 29px;
+    display: flex;
+    align-items: center;
+    padding: 13px 36px;
     color: $default;
     background-color: $white;
     box-shadow: 0 0 0 1px $silver;
     line-height: 1.3;
     transition: color 0.3s, background-color 0.3s, fill 0.3s;
-    margin-bottom: 45px;
+    white-space: nowrap;
 
     &:focus {
       color: $default;
       background-color: $white;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($accent, 0.70);
     }
 
     &:focus .btn__svg {
@@ -218,7 +228,7 @@
     &:hover {
       color: $accent;
       background-color: rgba(255, 122, 82, 0.10);
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($accent, 0.70);
     }
 
     &:hover .btn__svg {
@@ -228,7 +238,7 @@
     &:active {
       color: $default;
       background-color: $white;
-      box-shadow: 0px -5px 12px 0px rgba($accent, 0.20) inset;
+      box-shadow: 0 -5px 12px 0 rgba($accent, 0.20) inset;
     }
 
     &:active .btn__svg {
@@ -239,15 +249,10 @@
       margin-right: 20px;
     }
 
-    svg {
-      display: inline-flex;
-      transform: translateY(15px);
-      margin-right: 10px;
-    }
-
     .btn__svg {
       fill: black;
       transition: fill 0.3s;
+      margin-right: 10px;
     }
   }
 
@@ -286,8 +291,8 @@
   justify-content: space-between;
   background-color: $white;
   padding: 15px;
-  max-width: 210px;
-  height: 300px;
+  width: 210px;
+  height: 299px;
   border-radius: 5px;
   border: 1px solid $silver;
   transition: box-shadow 0.3s;
@@ -296,20 +301,25 @@
     box-shadow: 0 0 0 1px $accent;
   }
 
+  &__link {
+    width: 140px;
+    height: 140px;
+  }
+
   &__img {
-    width: 100%;
     width: 140px;
     height: 140px;
     margin: 0 auto;
-    height: fit-content;
-    padding-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   &__title {
     color: $dark;
     font-size: 15px;
+    @extend %rubik-400;
     line-height: normal;
     margin-bottom: 10px;
+    @include line-clamp(2);
   }
 
   &__price {
@@ -326,7 +336,6 @@
     font-size: 14px;
     line-height: 1.3;
     padding: 7px 16px;
-    cursor: pointer;
   }
 }
 
@@ -336,7 +345,6 @@
   }
 
   &__img {
-    width: 100%;
     width: 440px;
     height: 585px;
     @extend %bg-img;
@@ -353,11 +361,12 @@
 
   &__descr {
     color: $dark;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    @include line-clamp(3);
   }
 
   &__list {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
   }
 
   &__item {
@@ -365,11 +374,11 @@
   }
 
   &__item:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   &__item svg {
-    margin-right: 30px;
+    margin-right: 25px;
     transform: translateY(8px);
   }
 
@@ -378,14 +387,16 @@
   }
 }
 
-.restaurants__content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
+.restaurants {
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
 
-.restaurants__title {
-  margin-bottom: 45px;
+  &__title {
+    margin-bottom: 45px;
+  }
 }
 
 .rest-card {
@@ -413,8 +424,10 @@
   &__title {
     color: $dark;
     font-size: 24px;
+    @extend %rubik-400;
     line-height: 1.3;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    @include line-clamp(1);
   }
 
   &__time {
@@ -423,6 +436,8 @@
 
   &__watch-svg {
     transform: translateY(3px);
+    width: 22px;
+    height: 22px;
   }
 
   &__btn {
@@ -444,49 +459,87 @@
       padding-top: 7px;
     }
   }
-}
 
-.download-app {
-  &__wrapp {
-    @extend %flex-jc-ai;
-  }
-
-  &__content {
-    max-width: 470px;
-    height: 300px;
-  }
-
-  &__descr {
-    margin-bottom: 35px;
-    color: $dark;
-  }
-
-  &__title {
-    text-align: left;
-    margin-bottom: 45px;
-  }
-
-  &__link {
-    display: inline-flex;
-  }
-
-  &__link:not(:last-child) {
-    margin-right: 30px;
+  &__btn svg {
+    fill: $white;
+    width: 14px;
+    height: 12px;
   }
 }
 
 .reviews {
 
+  &__slider {
+    margin-bottom: 15px;
+  }
+
   &__title {
-    margin-bottom: 10px;
+    margin-bottom: 45px;
   }
 
   &__slider-item {
-    padding: 40px 0;
+  
   }
 
   &__slider-inner {
     @extend %flex-jc-c-ai;
+    margin-bottom: 40px;
+  }
+
+  &__arrow {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid #c3c3c3;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    bottom: -8px;
+    left: 50%;
+    transition: border 0.3s, background-color 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($accent, 0.70);
+    }
+
+    &:hover {
+      border: 3px solid rgb(255, 174, 148);
+      background-color: rgb(255, 242, 237);
+
+      &:hover svg {
+        filter: invert(96%) sepia(63%) saturate(4219%) hue-rotate(296deg) brightness(98%) contrast(104%);
+      }
+    }
+
+    &:active {
+      border: 3px solid transparent;
+      box-shadow: none;
+    }
+
+    &--prev {
+      transform: translateX(-115px);
+    }
+
+    &--next {
+      transform: translateX(70px);
+    }
+
+  }
+
+  &__arrow-svg {
+    background-image: url('../images/sprite.svg#slider-prev-icon');
+    width: 19px;
+    height: 19px;
+    filter: invert(77%) sepia(1%) saturate(0%) hue-rotate(167deg) brightness(100%) contrast(97%);
+    @extend %bg-img-sprite;
+    transform: translateY(2px);
+    margin-right: 2px;
+
+    &--next {
+      margin: 5px 0 0 2px;
+      transform: rotate(180deg);
+    }
   }
 
   .slick-dots {
@@ -500,6 +553,20 @@
         border-radius: 50%;
         background-color: $forms;
         margin-right: 15px;
+        transition: box-shadow 0.3s, background-color 0.3s;
+
+        &:focus {
+          box-shadow: 0 0 0 2px rgba($accent, 0.70);
+        }
+
+        &:hover {
+          box-shadow: 0 0 0 2px rgba(255, 122, 80, 0.7);
+          background-color: rgb(255, 242, 237);
+        }
+
+        &:active {
+          background-color: rgb(255, 174, 148);
+        }
       }
 
       &.slick-active {
@@ -510,51 +577,37 @@
     }
   }
 
-  .slick-prev {
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 3px solid #c3c3c3;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    transform: translateX(-115px);
+  .slick-disabled {
+    border: 3px solid $accent;
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($accent, 0.70);
+    }
+
+    &:hover {
+      border: 3px solid rgb(255, 174, 148);
+      background-color: rgb(255, 242, 237);
+    }
+
+    &:active {
+      border: 3px solid transparent;
+      box-shadow: none;
+    }
   }
 
-  .slick-next {
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: 3px solid #c3c3c3;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    transform: translateX(70px);
-    
+  .slick-disabled svg {
+    filter: invert(56%) sepia(33%) saturate(4827%) hue-rotate(336deg) brightness(100%) contrast(102%);
+
+    &:hover {
+      filter: invert(96%) sepia(63%) saturate(4219%) hue-rotate(296deg) brightness(98%) contrast(104%);
+    }
   }
 
-  .slick-prev svg {
-    background-image: url('../images/sprite.svg#slider-prev-icon');
-    width: 19px;
-    height: 19px;
-    filter: invert(77%) sepia(1%) saturate(0%) hue-rotate(167deg) brightness(100%) contrast(97%);
-    @extend %bg-img-sprite;
-    transform: translateY(2px);
-    margin-right: 2px;
-  }
-
-  .slick-next svg {
-    background-image: url('../images/sprite.svg#slider-next-icon');
-    width: 19px;
-    height: 19px;
-    filter: invert(77%) sepia(1%) saturate(0%) hue-rotate(167deg) brightness(100%) contrast(97%);
-    @extend %bg-img-sprite;
-    transform: translateY(2px);
-  }
 
   &__img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
     border-radius: 50%;
     margin-right: 35px;
   }
@@ -571,28 +624,27 @@
     padding-left: 40px;
     padding-right: 40px;
     position: relative;
+    @include line-clamp(6);
 
-    &::before {
-      content: '';
-      position: absolute;
-      background-image: url('../images/quote.png');
+    &::before,
+    &::after {
+      @include pseudo;
+      background-image: url('../images/sprite.svg#quote');
+      @extend %bg-img;
+      filter: invert(77%) sepia(1%) saturate(0%) hue-rotate(167deg) brightness(100%) contrast(97%);
       width: 24px;
       height: 20px;
-      @extend %bg-img;
+    }
+
+    &::before {
       top: 0;
       left: 0;
+      transform: scale(-1, 1);
     }
 
     &::after {
-      content: '';
-      position: absolute;
-      background-image: url('../images/quote.png');
-      width: 24px;
-      height: 20px;
-      @extend %bg-img;
       bottom: 0;
       right: 0;
-      transform: scale(-1, 1);
     }
   }
 
@@ -615,6 +667,42 @@
   }
 }
 
+.download-app {
+  &__wrapp {
+    @extend %flex-jc-ai;
+  }
+
+  &__content {
+    max-width: 490px;
+    height: 300px;
+  }
+
+  &__descr {
+    margin-bottom: 30px;
+    color: $dark;
+    @include line-clamp(3);
+  }
+
+  &__title {
+    text-align: left;
+    margin-bottom: 45px;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  &__images {
+    width: 570px;
+    height: 380px;
+    object-fit: cover;
+  }
+}
+
 .footer-top {
   display: flex;
   padding-bottom: 60px;
@@ -633,9 +721,14 @@
     row-gap: 20px;
     grid-auto-rows: 23px;
   }
+
+  &__list-link {
+    text-decoration: none;
+  }
 }
 
 .subscribe {
+  width: 100%;
   max-width: 200px;
 
   &__input {
@@ -696,6 +789,7 @@
 }
 
 .address {
+ 
 
   &__item {
     margin-bottom: 15px;
@@ -705,36 +799,40 @@
     color: $dark;
     font-size: 16px;
     line-height: 2;
-    cursor: pointer;
     position: relative;
-    padding-left: 25px;
-
-
-    &::before {
-      content: "";
-      position: absolute;
-      @extend %bg-img;
-      left: 0;
-      top: 0;
+    margin-left: 10px;
+    text-decoration: none;
+    &:hover svg {
+      stroke: $accent;
     }
 
-    &--location::before {
-      background-image: url('../images/footer_img/icon-location.svg');
-      width: 15px;
-      height: 18px;
+    &:active svg {
+      box-shadow: 2px 2px 2px 2px rgba(49, 53, 43, 0.50);
+      stroke: $dark;
     }
+  }
 
-    &--call::before {
-      background-image: url('../images/footer_img/icon-call.svg');
-      width: 19px;
-      height: 19px;
-    }
+  &__link svg {
+    left: 0;
+    margin-right: 10px;
+    stroke: $dark;
+    fill: $body;
+    transform: translateY(5px);
+    transition: stroke 0.3s;
+  }
+  .address__loc {
+    width: 15px;
+    height: 20px;
+  }
 
-    &--email::before {
-      background-image: url('../images/footer_img/icon-message.svg');
-      width: 20px;
-      height: 18px;
-    }
+  .address__call {
+    width: 19px;
+    height: 19px;
+  }
+
+  .address__email {
+    width: 20px;
+    height: 18px;
   }
 }
 
@@ -745,34 +843,36 @@
     margin-right: 12px;
   }
 
-  &__link {
+  &__item {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: rgb(236, 236, 236);
-    border-radius: 50%;
-    transition: background-color 0.3s, fill 0.3s;
     padding: 0;
-
+    background-color: $silver;
+    border-radius: 50%;
+    transition: background-color 0.3s, fill 0.3s, filter 0.3s;
     &:hover {
       background-color: $btn-bg;
     }
-
-    &:hover svg path {
-      fill: $white;
+    &:hover svg {
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(223deg) brightness(102%) contrast(101%);
     }
 
     &:active {
-      background-color: rgba(255, 122, 80, 0.10);
+      background-color: rgba(255, 174, 148,0.20);
     }
-
-    &:active svg path {
-      fill: $accent;
+    &:active svg {
+      filter: invert(56%) sepia(55%) saturate(832%) hue-rotate(325deg) brightness(100%) contrast(102%);
     }
   }
-}
+
+  &__link svg {
+    transform: translateY(3px);
+    }
+  }
+
 
 .footer-copy {
   padding: 30px 0;
