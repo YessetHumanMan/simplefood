@@ -13,14 +13,37 @@ $('.reviews__slider').slick({
 
 });
 
+$('.burger, .burger-page').on('click', function () {
+  $('.burger,.burger-page').toggleClass('active');
+  $('body').toggleClass('lock');
+  
+});
+
+})
+
+const swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 5,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    992: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+   
+
+  },
 });
 
 const mixer = mixitup('.popular-categories__filter-content');
-
-
-
-
-
-
-
-
