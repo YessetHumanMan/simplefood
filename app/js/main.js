@@ -13,8 +13,8 @@ $('.reviews__slider').slick({
 
 });
 
-$('.burger, .burger-page').on('click', function () {
-  $('.burger,.burger-page').toggleClass('active');
+$('.burger, .burger-page__btn-close').on('click', function () {
+  $('.burger-page').toggleClass('active');
   $('body').toggleClass('lock');
   
 });

@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 777;
+  z-index: 999;
   padding: 60px 0;
   transition: padding 0.3s, background-color 0.3s;
 
@@ -32,7 +32,6 @@
   &__logo {
     margin-right: auto;
   }
-
 }
 
 
@@ -146,8 +145,6 @@
     stroke: $dark;
   }
 
-
-
   &__item:not(:last-child) {
     margin-right: 10px;
   }
@@ -198,16 +195,21 @@
 
 .lock {
   overflow: hidden;
-  width: 60px;
-  height: 100vh;
-  background-color: #7C7D7F;
-  
+  position: relative;
+   &::after {
+    @include pseudo;
+    inset: 0;
+    background-color: rgba(0,0,0, 0.5);
+   }
+   
 }
 
 .burger-page.active {
+
   @include mq('tablet') {
     display: block;
-    transform: translateX(-200%)
+    transform: translateX(0);
+  
   }
 }
 
@@ -216,9 +218,8 @@
   width: 310px;
   height: 100vh;
   background-color: $white;
-  z-index: 9;
   position: absolute;
-  transform: translateX(0);
+  transform: translateX(-200%);
   left: 0;
   top: 0;
   transition: transform 0.5s;
@@ -227,11 +228,15 @@
     display: block;
   }
 
-
   &__header {
     @extend %flex-jc-ai;
     padding: 25px 26px 25px 15px;
     border-bottom: 1px solid $forms;
+  }
+
+  &__img {
+    width: 200px;
+    height: 39px;
   }
 
   &__btn-close {
@@ -258,15 +263,15 @@
 
   &__menu {
     display: block;
-    padding: 25px 15px;
+    padding: 25px 80px 25px 15px;
     border-bottom: 1px solid $forms;
+    margin-right: 0;
   }
 
   &__address {
     padding: 15px;
   }
 }
-
 
 .hero-content {
   margin-top: 100px;
@@ -641,16 +646,13 @@
   border: 1px solid $silver;
   transition: box-shadow 0.3s;
 
-
   @include mq('tablet') {
     width: 250px;
   }
 
-
   @include mq('phone') {
     width: 170px;
   }
-
 
   &:hover {
     box-shadow: 0 0 0 1px $accent;
@@ -665,7 +667,6 @@
   &__img {
     width: 140px;
     height: 140px;
-
   }
 
   &__title {
@@ -1093,7 +1094,6 @@
         transform: translateX(97px);
       }
     }
-
   }
 
   &__arrow-svg {
@@ -1274,8 +1274,6 @@
     padding-left: 40px;
   }
 }
-
-
 
 .download-app {
 
@@ -1459,7 +1457,6 @@
   width: 100%;
   max-width: 200px;
 
-
   @include mq('tablet-2') {
     margin-bottom: 20px;
 
@@ -1622,7 +1619,6 @@
     transform: translateY(3px);
   }
 }
-
 
 .footer-copy {
   padding: 30px 0;
