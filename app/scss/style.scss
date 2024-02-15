@@ -108,7 +108,9 @@
   &__btn {
     width: 44px;
     height: 44px;
-    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 5px;
     background-color: transparent;
     position: relative;
@@ -143,6 +145,7 @@
     height: 19px;
     fill: transparent;
     stroke: $dark;
+    stroke-width: 1.5;
   }
 
   &__item:not(:last-child) {
@@ -169,22 +172,22 @@
 
   &__line {
     display: block;
-    border: 2px solid #00000080;
+    border: 1px solid $default;
 
     &::before,
     &::after {
       @include pseudo;
-      border: 2px solid #00000080;
+      border: 1px solid $default;
       width: 100%;
       left: 0;
     }
 
     &::before {
-      top: 0;
+      top: 2px;
     }
 
     &::after {
-      bottom: 0;
+      bottom: 2px;
     }
   }
 
@@ -231,7 +234,7 @@
   &__header {
     @extend %flex-jc-ai;
     padding: 25px 26px 25px 15px;
-    border-bottom: 1px solid $forms;
+    border-bottom: 1px solid $page;
   }
 
   &__img {
@@ -264,13 +267,27 @@
   &__menu {
     display: block;
     padding: 25px 80px 25px 15px;
-    border-bottom: 1px solid $forms;
+    border-bottom: 1px solid $page;
     margin-right: 0;
+  }
+
+  .menu__item:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .menu__link {
+    display: block;
+    padding: 10px 0;
   }
 
   &__address {
     padding: 15px;
   }
+
+  .address__link {
+    margin-left: 0;
+  }
+  
 }
 
 .hero-content {
@@ -287,7 +304,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 80px 0;
     }
 
     @include mq('tablet') {
@@ -306,11 +322,9 @@
 
   &__info {
     max-width: 100%;
-    max-width: 450px;
     z-index: 1;
 
     @include mq('tablet-2') {
-      max-width: 100%;
       max-width: 350px;
     }
 
@@ -319,7 +333,6 @@
     }
 
     @include mq('tablet') {
-      max-width: 100%;
       max-width: 450px;
     }
   }
@@ -397,7 +410,7 @@
 
     @include mq('tablet') {
       position: absolute;
-      opacity: 0.1;
+      opacity: 0.2;
       width: 500px;
       height: 600px;
     }
@@ -472,6 +485,10 @@
 
   &__filter-item {
     margin-right: 20px;
+
+    @include mq('phone') {
+      margin-right:10px;
+    }
   }
 
   &__filter-btn {
@@ -615,7 +632,6 @@
     }
 
     @include mq('phone') {
-      grid-template-columns: repeat(2, 1fr);
       column-gap: 5px;
       row-gap: 10px;
       margin-bottom: 30px;
@@ -640,19 +656,11 @@
   justify-content: space-between;
   background-color: $white;
   padding: 15px;
-  width: 210px;
+  width: 100%;
   height: 299px;
   border-radius: 5px;
   border: 1px solid $silver;
   transition: box-shadow 0.3s;
-
-  @include mq('tablet') {
-    width: 250px;
-  }
-
-  @include mq('phone') {
-    width: 170px;
-  }
 
   &:hover {
     box-shadow: 0 0 0 1px $accent;
@@ -728,7 +736,7 @@
       position: absolute;
       width: 440px;
       height: 585px;
-      opacity: 0.1;
+      opacity: 0.2;
     }
 
     @include mq('phone') {
@@ -897,7 +905,7 @@
 }
 
 .rest-card {
-  max-width: 370px;
+  max-width: 100%;
   height: 419px;
   background-color: $white;
   border-radius: 10px;
@@ -909,7 +917,7 @@
   }
 
   &__img {
-    width: 370px;
+    width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
@@ -1210,8 +1218,7 @@
     color: $dark;
     @extend %rubik-i-400;
     margin-bottom: 30px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 10px 40px 0 40px;
     position: relative;
     @include line-clamp(6);
 
@@ -1380,8 +1387,7 @@
     }
 
     @include mq('phone') {
-      width: 370px;
-      height: 200px;
+      display: none;
     }
   }
 }
@@ -1403,12 +1409,13 @@
 
   @include mq('tablet-2') {
     display: flex;
-    flex-direction: column;
-    gap: 6%;
+    flex-wrap: wrap;
+    gap: 10%;
   }
 
   @include mq('phone') {
     padding-bottom: 30px;
+    flex-direction: column;
   }
 
   &__logo {
@@ -1556,17 +1563,17 @@
     transition: stroke 0.3s;
   }
 
-  .address__loc {
+  &__loc {
     width: 15px;
     height: 20px;
   }
 
-  .address__call {
+  &__call {
     width: 19px;
     height: 19px;
   }
 
-  .address__email {
+  &__email {
     width: 20px;
     height: 18px;
   }
@@ -1583,10 +1590,6 @@
     margin-bottom: 8px;
   }
 
-  &__item:not(:last-child) {
-    margin-right: 12px;
-  }
-
   &__item {
     display: flex;
     justify-content: center;
@@ -1597,6 +1600,10 @@
     background-color: $silver;
     border-radius: 50%;
     transition: background-color 0.3s, fill 0.3s, filter 0.3s;
+
+    &__item:not(:last-child) {
+      margin-right: 12px;
+    }
 
     &:hover {
       background-color: $btn-bg;
@@ -1622,7 +1629,7 @@
 
 .footer-copy {
   padding: 30px 0;
-  border-top: 1px solid #eeeff3;
+  border-top: 1px solid $page;
   text-align: center;
 
   &__text {
