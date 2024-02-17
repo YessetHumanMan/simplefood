@@ -1,7 +1,7 @@
 $(function() {
 
 $(window).on('scroll', function(){
-  $('.header').toggleClass('header--fixed', $(this).scrollTop() > 0);
+  $('.header').toggleClass('header--fixed', $(this).scrollTop() > 50);
 });
 
 $('.reviews__slider').slick({
@@ -13,17 +13,31 @@ $('.reviews__slider').slick({
 
 });
 
-$('.burger, .burger-page__btn-close').on('click', function () {
-  $('.burger-page').toggleClass('active');
-  $('body').toggleClass('lock');
-  
+$(".burger").on("click" , function (e) {
+  e.preventDefault();
+  $(".burger-page").addClass("active");
+  $("body").addClass("lock");
 });
 
-})
+$(".burger-page__btn-close").on("click" , function () {
+  $(".burger-page").removeClass("active");
+  $("body").removeClass("lock");
+});
 
-const swiper = new Swiper(".mySwiper", {
+$(document).mouseup(function (e) {
+  var div = $(".burger-page");
+  if(!div.is(e.target) && div.has(e.target).length === 0) {
+      $(".burger-page").removeClass("active");
+      $("body").removeClass("lock");
+  }
+});
+
+
+});
+
+var swiper = new Swiper(".swiper", {
   slidesPerView: 1,
-  spaceBetween: 5,
+  spaceBetween: 15,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -31,18 +45,20 @@ const swiper = new Swiper(".mySwiper", {
   breakpoints: {
     576: {
       slidesPerView: 2,
-      spaceBetween: 10,
+      spaceBetween: 20,
     },
     768: {
       slidesPerView: 2,
-      spaceBetween: 10,
+      spaceBetween: 20,
     },
     992: {
       slidesPerView: 3,
-      spaceBetween: 10,
+      spaceBetween: 20,
     },
-   
-
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
   },
 });
 

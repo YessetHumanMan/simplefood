@@ -27,6 +27,9 @@
     background-color: $white;
     padding: 10px 0;
     box-shadow: 0 0 0 2px rgba($accent, 0.20);
+    z-index: 555;
+    position: fixed;
+    margin-bottom: 100px;
   }
 
   &__logo {
@@ -199,12 +202,14 @@
 .lock {
   overflow: hidden;
   position: relative;
-   &::after {
+
+  &::after {
     @include pseudo;
     inset: 0;
-    background-color: rgba(0,0,0, 0.5);
-   }
-   
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 777;
+  }
+
 }
 
 .burger-page.active {
@@ -212,7 +217,7 @@
   @include mq('tablet') {
     display: block;
     transform: translateX(0);
-  
+
   }
 }
 
@@ -226,6 +231,8 @@
   left: 0;
   top: 0;
   transition: transform 0.5s;
+  z-index: 999;
+  position: fixed;
 
   @include mq('tablet') {
     display: block;
@@ -287,7 +294,7 @@
   .address__link {
     margin-left: 0;
   }
-  
+
 }
 
 .hero-content {
@@ -321,7 +328,8 @@
   }
 
   &__info {
-    max-width: 100%;
+    width: 100%;
+    max-width: 470px;
     z-index: 1;
 
     @include mq('tablet-2') {
@@ -487,7 +495,7 @@
     margin-right: 20px;
 
     @include mq('phone') {
-      margin-right:10px;
+      margin-right: 10px;
     }
   }
 
@@ -973,12 +981,10 @@
   }
 }
 
-.swiper {
-  padding: 0 0 70px 0;
-}
-
 .swiper-pagination {
-  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
 }
 
 .swiper-pagination-bullet {
@@ -986,6 +992,10 @@
   height: 15px;
   border-radius: 50%;
   background-color: $forms;
+}
+
+.swiper-pagination-bullet:not(:last-child) {
+  margin-right: 15px;
 }
 
 .swiper-pagination-bullet-active {
@@ -1601,7 +1611,7 @@
     border-radius: 50%;
     transition: background-color 0.3s, fill 0.3s, filter 0.3s;
 
-    &__item:not(:last-child) {
+    &:not(:last-child) {
       margin-right: 12px;
     }
 
@@ -1636,5 +1646,39 @@
     color: $dark;
     font-size: 14px;
     line-height: 1;
+  }
+}
+
+.product-catalog {
+  margin-top: 105px;
+}
+
+.bradcrumbs {
+
+  &__item {
+    display: inline-flex;
+    margin-right: 17px;
+    position: relative;
+
+    &::after {
+      @include pseudo;
+      background-image: url('../images/sprite.svg#bread-arrow');
+      @extend %bg-img;
+      width: 6px;
+      height: 10px;
+      right: -14px;
+      top: 6px;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    @extend %rubik-400;
+    font-size: 14px;
+    color: $catalog;
   }
 }
