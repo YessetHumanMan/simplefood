@@ -61,7 +61,97 @@
     </div>
   </header>
 
-  <!-- <main class="main"> -->
+
+  <main class="main">
+
+    <div class="product-catalog__menu-page">
+      <div class="product-catalog__info-page">
+        <div class="product-catalog__menu">
+          <h3 class="product-catalog__info-title border--title">Категории</h3>
+          <ul class="product-catalog__menu-list border--info">
+            <li class="product-catalog__menu-item">
+              <a class="product-catalog__menu-link menu__link--main link-default" href="">Бургеры</a>
+            </li>
+            <li class="product-catalog__menu-item">
+              <a class="product-catalog__menu-link link-default" href="">Пицца</a>
+            </li>
+            <li class="product-catalog__menu-item">
+              <a class="product-catalog__menu-link link-default" href="">Сендвичи</a>
+            </li>
+            <li class="product-catalog__menu-item">
+              <a class="product-catalog__menu-link link-default" href="">Азиатская кухня</a>
+            </li>
+            <li class="product-catalog__menu-item">
+              <a class="product-catalog__menu-link link-default" href="">Сеты</a>
+            </li>
+            <li class="product-catalog__menu-item">
+              <a class="product-catalog__menu-link link-default" href="">Европейская кухня</a>
+            </li>
+            <li class="product-catalog__menu-item">
+              <a class="product-catalog__menu-link link-default" href="">Напитки</a>
+            </li>
+            <li class="product-catalog__menu-item">
+              <a class="product-catalog__menu-link link-default" href="">Алкоголь</a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="product-catalog__offers border--info">
+          <h3 class="product-catalog__info-title">Предложения</h3>
+          <form class="product-catalog__offers-form">
+  
+            <label class="product-catalog__offers-lable">
+              <input class="product-catalog__offers-input" type="checkbox">
+              <span class="product-catalog__offers-span">
+              </span>
+              Со скидкой
+            </label>
+  
+            <label class="product-catalog__offers-lable">
+              <input class="product-catalog__offers-input" type="checkbox">
+              <span class="product-catalog__offers-span"></span>
+              Новинка
+            </label>
+  
+            <label class="product-catalog__offers-lable">
+              <input class="product-catalog__offers-input" type="checkbox">
+              <span class="product-catalog__offers-span"></span>
+              Хит
+            </label>
+  
+          </form>
+        </div>
+  
+        <div class="product-catalog__filter border--info">
+          <h3 class="product-catalog__info-title">Цена</h3>
+          <form class="product-catalog__form" action="#">
+            <div class="product-catalog__filter-top">
+              <label class="product-catalog__form-lable">
+                <span class="product-catalog__form-span">от</span>
+                <span class="product-catalog__form-from"></span>
+                <svg class="product-catalog__form-svg">
+                  <use xlink:href="images/sprite.svg#valuta"></use>
+                </svg>
+              </label>
+              <label class="product-catalog__form-lable">
+                <span class="product-catalog__form-span">до</span>
+                <span class="product-catalog__form-to"></span>
+                <svg class="product-catalog__form-svg">
+                  <use xlink:href="images/sprite.svg#valuta"></use>
+                </svg>
+              </label>
+            </div>
+            <input class="product-catalog__input" type="text" data-min="0" data-max="1200" data-from="100"
+              data-to="1000">
+          </form>
+        </div>
+      </div>
+      <button class="product-catalog__btn-close" type="button">
+        <svg>
+          <use xlink:href="images/sprite.svg#btn-close"></use>
+        </svg>
+      </button>
+    </div>
 
     <section class="product-catalog">
       <div class="bradcrumbs">
@@ -113,7 +203,7 @@
 
 
         <div class="product-catalog__content">
-          
+
           <div class="product-catalog__info">
             <div class="product-catalog__menu">
               <h3 class="product-catalog__info-title">Категории</h3>
@@ -424,98 +514,11 @@
           </div>
         </div>
       </div>
+
+      
     </section>
 
-    <div class="product-catalog__menu-page">
-      <div class="product-catalog__info-page">
-        <div class="product-catalog__menu">
-          <h3 class="product-catalog__info-title">Категории</h3>
-          <ul class="product-catalog__menu-list">
-            <li class="product-catalog__menu-item">
-              <a class="product-catalog__menu-link menu__link--main   link-default" href="">Бургеры</a>
-            </li>
-            <li class="product-catalog__menu-item">
-              <a class="product-catalog__menu-link link-default" href="">Пицца</a>
-            </li>
-            <li class="product-catalog__menu-item">
-              <a class="product-catalog__menu-link link-default" href="">Сендвичи</a>
-            </li>
-            <li class="product-catalog__menu-item">
-              <a class="product-catalog__menu-link link-default" href="">Азиатская кухня</a>
-            </li>
-            <li class="product-catalog__menu-item">
-              <a class="product-catalog__menu-link link-default" href="">Сеты</a>
-            </li>
-            <li class="product-catalog__menu-item">
-              <a class="product-catalog__menu-link link-default" href="">Европейская кухня</a>
-            </li>
-            <li class="product-catalog__menu-item">
-              <a class="product-catalog__menu-link link-default" href="">Напитки</a>
-            </li>
-            <li class="product-catalog__menu-item">
-              <a class="product-catalog__menu-link link-default" href="">Алкоголь</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="product-catalog__offers">
-          <h3 class="product-catalog__info-title">Предложения</h3>
-          <form class="product-catalog__offers-form">
-
-            <label class="product-catalog__offers-lable">
-              <input class="product-catalog__offers-input" type="checkbox">
-              <span class="product-catalog__offers-span">
-              </span>
-              Со скидкой
-            </label>
-
-            <label class="product-catalog__offers-lable">
-              <input class="product-catalog__offers-input" type="checkbox">
-              <span class="product-catalog__offers-span"></span>
-              Новинка
-            </label>
-
-            <label class="product-catalog__offers-lable">
-              <input class="product-catalog__offers-input" type="checkbox">
-              <span class="product-catalog__offers-span"></span>
-              Хит
-            </label>
-
-          </form>
-        </div>
-
-        <div class="product-catalog__filter">
-          <h3 class="product-catalog__info-title">Цена</h3>
-          <form class="product-catalog__form" action="#">
-            <div class="product-catalog__filter-top">
-              <label class="product-catalog__form-lable">
-                <span class="product-catalog__form-span">от</span>
-                <span class="product-catalog__form-from"></span>
-                <svg width="10" height="16" fill="#c2c2c2">
-                  <use xlink:href="images/sprite.svg#valuta"></use>
-                </svg>
-              </label>
-              <label class="product-catalog__form-lable">
-                <span class="product-catalog__form-span">до</span>
-                <span class="product-catalog__form-to"></span>
-                <svg width="10" height="16" fill="#c2c2c2">
-                  <use xlink:href="images/sprite.svg#valuta"></use>
-                </svg>
-              </label>
-            </div>
-            <input class="product-catalog__input" type="text" data-min="0" data-max="1200" data-from="100"
-              data-to="1000">
-          </form>
-        </div>
-      </div>
-      <button class="product-catalog__btn-close" type="button">
-        <svg>
-          <use xlink:href="images/sprite.svg#btn-close"></use>
-        </svg>
-      </button>
-    </div>
-
-    <!-- <section class="download-app">
+    <section class="download-app">
       <div class="container">
         <div class="download-app__wrapp">
           <div class="download-app__content">
@@ -550,46 +553,50 @@
     <section class="product-catalog__discounts">
       <div class="container">
         <h3 class="title product-catalog__title">Акции и скидки</h3>
-        <ul class="product-catalog__discounts-content">
-          <li class="product-catalog__discounts-item">
-            <article class="rest-card product-catalog__card">
-              <img class="rest-card__img" src="images/restaurends/blaze-pizza.jpeg" alt="пицца блазе" width="370"
-                height="300">
-              <div class="rest-card__footer">
-                <div class="product-catalog__discounts-descr">
-                  <p>
-                    Скидка 50% на вторую пиццу
-                  </p>
+
+        <div class="swiper mySwiper" data-mobile="false">
+          <ul class="product-catalog__discounts-content swiper-wrapper">
+            <li class="product-catalog__discounts-item swiper-slide">
+              <article class="rest-card product-catalog__card">
+                <img class="rest-card__img" src="images/restaurends/blaze-pizza.jpeg" alt="пицца блазе" width="370"
+                  height="300">
+                <div class="rest-card__footer">
+                  <div class="product-catalog__discounts-descr">
+                    <p>
+                      Скидка 50% на вторую пиццу
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </article>
-          </li>
-          <li class="product-catalog__discounts-item">
-            <article class="rest-card product-catalog__card">
-              <img class="rest-card__img" src="images/restaurends/kfc.jpeg" alt="КФС" width="370" height="300">
-              <div class="rest-card__footer">
-                <div class="product-catalog__discounts-descr">
-                  <p>
-                    Картошечка из KFC даром при заказе бургера
-                  </p>
+              </article>
+            </li>
+            <li class="product-catalog__discounts-item swiper-slide">
+              <article class="rest-card product-catalog__card">
+                <img class="rest-card__img" src="images/restaurends/kfc.jpeg" alt="КФС" width="370" height="300">
+                <div class="rest-card__footer">
+                  <div class="product-catalog__discounts-descr">
+                    <p>
+                      Картошечка из KFC даром при заказе бургера
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </article>
-          </li>
-          <li class="product-catalog__discounts-item">
-            <article class="rest-card product-catalog__card">
-              <img class="rest-card__img" src="images/restaurends/star-burger.jpeg" alt="стар бургер" width="370"
-                height="300">
-              <div class="rest-card__footer">
-                <div class="product-catalog__discounts-descr">
-                  <p>
-                    Чёрные бургеры на чёрный день 
-                  </p>
+              </article>
+            </li>
+            <li class="product-catalog__discounts-item swiper-slide">
+              <article class="rest-card product-catalog__card">
+                <img class="rest-card__img" src="images/restaurends/star-burger.jpeg" alt="стар бургер" width="370"
+                  height="300">
+                <div class="rest-card__footer">
+                  <div class="product-catalog__discounts-descr">
+                    <p>
+                      Чёрные бургеры на чёрный день
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </article>
-          </li>
-        </ul>
+              </article>
+            </li>
+          </ul>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
     </section>
 
@@ -724,7 +731,7 @@
     <div class="footer-copy">
       <p class="footer-copy__text">© 2022 Simple Food</p>
     </div>
-  </footer> -->
+  </footer>
 
   <script src="js/main.min.js"></script>
 </body>
