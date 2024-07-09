@@ -1,0 +1,72 @@
+$body: #F9FAFF;
+$accent: #ff6838;
+$btn-bg: #ff7a50;
+$default: #363853;
+$forms: #c2c2c2;
+$dark: #31352b;
+$silver: #ececec;
+$white: #ffffff;
+$page:#eeeff3;
+$catalog:#505050;
+$catalog-accent: #faeded;
+
+%rubik-300 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+}
+
+%rubik-400 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+}
+
+%rubik-i-400 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+%rubik-500 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+}
+
+
+%flex-jc-ai {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%flex-jc-sa-ai {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+%flex-jc-c-ai {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%bg-img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+%bg-img-sprite {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+$breakpoints: (
+  "phone": 576px,
+  "tablet": 768px,
+  "tablet-2": 992px,
+  "desktop": 1200px
+);
+
+
