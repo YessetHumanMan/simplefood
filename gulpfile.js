@@ -11,6 +11,7 @@ const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
 const fileInclude = require('gulp-file-include');
+const del = require('del');
 
 function scripts() {
   return src([
@@ -55,10 +56,14 @@ function browsersync() {
   });
 }
 
-function cleanDist() {
-  return src('dist')
-    .pipe(clean())
-}
+// function cleanDist() {
+//   return src('dist')
+//     .pipe(clean())
+// }
+
+gulp.task('cleanDist', function() {
+  return del(['dist/**/*']);
+});
 
 function building() {
   return src([
