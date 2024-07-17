@@ -1,4 +1,4 @@
 [build]
-  base = "simplefood"
+  base = "."
   command = "gulp build"
   publish = "dist"
