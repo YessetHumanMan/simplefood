@@ -12,6 +12,22 @@ const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
 const fileInclude = require('gulp-file-include');
 
+function cleanDist() {
+  return src('dist')
+    .pipe(clean())
+}
+
+function styles() {
+  return src(
+    'app/scss/style.scss'
+  )
+    .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] }))
+    .pipe(concat('style.min.css'))
+    .pipe(scss({ outputStyle: 'compressed' }))
+    .pipe(dest('app/css'))
+    .pipe(browserSync.stream())
+}
+
 
 function scripts() {
   return src([
@@ -29,16 +45,6 @@ function scripts() {
     .pipe(browserSync.stream())
 }
 
-function styles() {
-  return src(
-    'app/scss/style.scss'
-  )
-    .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] }))
-    .pipe(concat('style.min.css'))
-    .pipe(scss({ outputStyle: 'compressed' }))
-    .pipe(dest('app/css'))
-    .pipe(browserSync.stream())
-}
 
 function watching() {
   watch(['app/scss/style.scss'], styles)
@@ -56,10 +62,7 @@ function browsersync() {
   });
 }
 
-function cleanDist() {
-  return src('dist')
-    .pipe(clean())
-}
+
 
 // gulp.task('cleanDist', function() {
 //   return del('dist');
