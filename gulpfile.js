@@ -11,7 +11,7 @@ const svgSprite = require('gulp-svg-sprite');
 const cheerio = require('gulp-cheerio');
 const replace = require('gulp-replace');
 const fileInclude = require('gulp-file-include');
-const del = require('del');
+
 
 function scripts() {
   return src([
@@ -56,14 +56,14 @@ function browsersync() {
   });
 }
 
-// function cleanDist() {
-//   return src('dist')
-//     .pipe(clean())
-// }
+function cleanDist() {
+  return src('dist')
+    .pipe(clean())
+}
 
-gulp.task('cleanDist', function() {
-  return del(['dist/**/*']);
-});
+// gulp.task('cleanDist', function() {
+//   return del('dist');
+// });
 
 function building() {
   return src([
@@ -73,6 +73,11 @@ function building() {
   ], { base: 'app' })
     .pipe(dest('dist'))
 }
+
+// gulp.task('build', gulp.series('cleanDist', function() {
+//   return gulp.src('src/**/*.js')
+//       .pipe(gulp.dest('dist'));
+// }));
 
 function images() {
   return src('app/images/**/*.*')
@@ -139,4 +144,6 @@ exports.svgSprites = svgSprites;
 exports.htmlInclude = htmlInclude;
 
 exports.build = series(cleanDist, building);
+// gulp.task('default', gulp.series('build'));
+
 exports.default = parallel(htmlInclude, svgSprites, styles, scripts, browsersync, watching);
